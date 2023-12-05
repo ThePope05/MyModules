@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS ProjectName;
+CREATE DATABASE IF NOT EXISTS ProjectName;
+USE ProjectName;
