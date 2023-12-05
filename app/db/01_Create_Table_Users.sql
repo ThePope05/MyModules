@@ -1,5 +1,5 @@
-USE ProjectName;
 
+DROP TABLE IF EXISTS Users;
 CREATE TABLE Users(
 	Id tinyint primary key,
     Email varchar(150) not null unique key,
