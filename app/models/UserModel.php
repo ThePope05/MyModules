@@ -9,16 +9,21 @@ class UserModel
         $this->db = new Database();
     }
 
-    //Example of a query
-    public function index(int $id)
+    public function getUserByEmail($email)
     {
-        //Here you can write your query
-        $this->db->query("SELECT * FROM TABLE_NAME WHERE id = :id");
+        $this->db->query('SELECT * FROM users WHERE email = :email');
+        $this->db->bind(':email', $email);
 
-        //Here you can bind your parameters
-        $this->db->bind(':id', $id);
+        return $this->db->execute(true);
+    }
 
-        //Here you can execute your query
-        return $this->db->resultSet();
+    public function storeUser($data)
+    {
+        $this->db->query('INSERT INTO users (name, email, password) VALUES (:name, :email, :password)');
+        $this->db->bind(':name', $data['name']);
+        $this->db->bind(':email', $data['email']);
+        $this->db->bind(':password', $data['password']);
+
+        return $this->db->execute();
     }
 }
