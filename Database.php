@@ -1,8 +1,5 @@
 <?php
 
-//Make connection with database
-//Config info is in ./app/config/config.php
-
 require_once './app/config/config.php';
 
 $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME;
